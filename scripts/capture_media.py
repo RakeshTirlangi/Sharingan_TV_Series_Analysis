@@ -60,7 +60,7 @@ def save_gif(frames: list[Image.Image], name: str, fps: float = 8, hold_last: fl
     print(f"{path.name}: {len(quantized)} frames, {path.stat().st_size / 1e6:.1f} MB")
 
 
-def hero_live_svg(page: Page) -> None:
+def hero_live_svg(page: Page, name: str = "hero-live") -> None:
     """Landing page as an animated SVG: a screenshot with the real eyes overlaid, spinning via SMIL.
 
     GitHub pauses GIFs for viewers whose system asks for reduced motion, but renders SVG
@@ -77,6 +77,7 @@ def hero_live_svg(page: Page) -> None:
         .map(s => { const r = s.getBoundingClientRect();
                     return {x: r.x, y: r.y, w: r.width, h: r.height, html: s.outerHTML}; })
         .filter(e => e.y + e.h > 0 && e.y < innerHeight)""")
+    vw, vh = page.viewport_size["width"], page.viewport_size["height"]
     png = base64.b64encode(page.screenshot(type="png")).decode()
     page.evaluate("document.querySelectorAll('svg').forEach(s => s.unpauseAnimations())")
     layers = []
@@ -87,10 +88,10 @@ def hero_live_svg(page: Page) -> None:
         layers.append(f'<svg x="{e["x"]:.1f}" y="{e["y"]:.1f}" width="{e["w"]:.1f}" height="{e["h"]:.1f}" '
                       f'viewBox="0 0 100 100">{inner}</svg>')
     svg = (f'<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" '
-           f'width="{W}" height="{H}" viewBox="0 0 {W} {H}">'
+           f'width="{vw}" height="{vh}" viewBox="0 0 {vw} {vh}">'
            f'<title>Sharingan landing page</title>'
-           f'<image width="{W}" height="{H}" href="data:image/png;base64,{png}"/>{"".join(layers)}</svg>')
-    path = OUT / "hero-live.svg"
+           f'<image width="{vw}" height="{vh}" href="data:image/png;base64,{png}"/>{"".join(layers)}</svg>')
+    path = OUT / f"{name}.svg"
     path.write_text(svg)
     print(f"{path.name}: {len(eyes)} animated eyes, {path.stat().st_size / 1e6:.1f} MB")
 
@@ -124,11 +125,12 @@ def main() -> None:
         # ---------------------------------------------------------------- hero
         page = browser.new_page(viewport={"width": W, "height": H})
         page.goto(URL, wait_until="domcontentloaded")
-        hero = record(page, 3.2, fps=10)               # entrance animation + count-up + spinning eye
-        save_gif(hero, "hero", fps=10)
         page.wait_for_load_state("networkidle")
         shot(page, "hero")
-        hero_live_svg(page)
+        hero_live_svg(page)                             # README banner (1280 × 800)
+        page.set_viewport_size({"width": W, "height": 1040})
+        hero_live_svg(page, "landing-full")             # tour: hero + stats + pipeline cards
+        page.set_viewport_size({"width": W, "height": H})
 
         page.add_style_tag(content=HIDE_NAV)
 

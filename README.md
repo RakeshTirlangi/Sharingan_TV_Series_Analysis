@@ -56,11 +56,11 @@ enough to hold a conversation with them, all presented in a React + Tailwind web
 ## A tour of the app
 
 ### 1 · Landing page
-<img src="docs/media/hero.gif" alt="Landing page animation: the Sharingan eye spins and the corpus statistics count up" width="100%" />
+<img src="docs/media/landing-full.svg" alt="The full landing page: the spinning Sharingan eye, corpus statistics and the five pipeline stages" width="100%" />
 
-The entrance animation introduces the corpus: **220 episodes, 55,025 dialogue lines, 2,556 labelled
-jutsu, 107 characters and 887 relationships**. Every number is read live from the API. Below the
-stats, the five pipeline stages are listed with the exact model each one uses.
+The landing page introduces the corpus: **220 episodes, 55,025 dialogue lines, 2,556 labelled jutsu,
+107 characters and 887 relationships**. Every number is read live from the API and counts up when the
+page opens. Below the stats, the five pipeline stages are listed with the exact model each one uses.
 
 <br />
 
