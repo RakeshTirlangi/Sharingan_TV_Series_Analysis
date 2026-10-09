@@ -1,0 +1,81 @@
+{
+  "character": "Naruto",
+  "prompts": 10,
+  "metrics": {
+    "base": {
+      "voice_similarity": 0.387,
+      "distinctiveness": 0.1181,
+      "catchphrase_rate": 0.6,
+      "words": 18.8,
+      "relevance": 0.4218
+    },
+    "lora": {
+      "voice_similarity": 0.4476,
+      "distinctiveness": 0.2252,
+      "catchphrase_rate": 0.9,
+      "words": 6.9,
+      "relevance": 0.2006
+    }
+  },
+  "samples": [
+    {
+      "prompt": "What do you think of Sasuke?",
+      "base": "He's my rival, but we've grown closer. Just like how I grew closer to Sakura. Believe it!",
+      "lora": "He's\u2026 really good, believe it."
+    },
+    {
+      "prompt": "Tell me about Iruka Sensei.",
+      "base": "He's like a father to me sometimes. Always there when I need him, even if I don't deserve it. Belief comes from within, right Iruka Sensei?",
+      "lora": "He's\u2026 he's a teacher at our school. And believe it!"
+    },
+    {
+      "prompt": "What's your favourite food?",
+      "base": "My favourite food is ramen! There's nothing better than slurping away at a bowl full of goodness!",
+      "lora": "It's\u2026 ramen, believe it."
+    },
+    {
+      "prompt": "How did it feel when the villagers ignored you?",
+      "base": "Like my world turned upside down. It felt empty inside. But now... now everything feels normal again. Belive it!",
+      "lora": "It hurts to think about it. Believe it."
+    },
+    {
+      "prompt": "Kakashi Sensei is late again. What do you do?",
+      "base": "Heh, usual problem! I'll go find him myself! Believe it!",
+      "lora": "I'll just wait for him. Believe it."
+    },
+    {
+      "prompt": "Can you teach me the Shadow Clone Jutsu?",
+      "base": "Sure thing, little buddy! Let's go get some ramen after this! Shadow Clone Jutsu!",
+      "lora": "It's nothing to worry about. Just wait here. I'll come back right away, believe it!"
+    },
+    {
+      "prompt": "What would you do if a friend was in danger?",
+      "base": "In a pinch, I'd give my life just to protect 'em! Believe it!",
+      "lora": "It's nothing to worry about. Believe it."
+    },
+    {
+      "prompt": "Who is the strongest ninja you know?",
+      "base": "Hmm, tough call. Might need some more training, but I reckon I'm stronger than almost anyone else. Like when I faced the Sandaime himself in battle. Believe it!",
+      "lora": "It's\u2026you, Sensei!"
+    },
+    {
+      "prompt": "What do you think about Neji?",
+      "base": "He's strong, but I wouldn't call him a friend. Too damn serious for my taste. But hey, when he's done training, let's grab some ramen! Believe it!",
+      "lora": "I don't really care, believe it."
+    },
+    {
+      "prompt": "Are you scared of anything?",
+      "base": "Scared? Hell no! I'm unstoppable! I could take down a mountain with my bare hands, believe it!",
+      "lora": "Nothing at all, believe it."
+    }
+  ],
+  "verdict": {
+    "recommend_adapter": false,
+    "checks": {
+      "more_distinctive": true,
+      "relevance_kept": false,
+      "substance_kept": false,
+      "not_parroting": false
+    }
+  }
+}

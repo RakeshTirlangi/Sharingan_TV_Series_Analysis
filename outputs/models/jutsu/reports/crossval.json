@@ -1,0 +1,113 @@
+{
+  "folds": 5,
+  "seed": 42,
+  "n": 2556,
+  "models": {
+    "tfidf_logreg": {
+      "macro_f1": {
+        "mean": 0.8488,
+        "std": 0.0436
+      },
+      "accuracy": {
+        "mean": 0.9171,
+        "std": 0.0252
+      },
+      "per_class_f1": {
+        "Genjutsu": {
+          "mean": 0.8308,
+          "std": 0.0454
+        },
+        "Ninjutsu": {
+          "mean": 0.9495,
+          "std": 0.0151
+        },
+        "Taijutsu": {
+          "mean": 0.7661,
+          "std": 0.0773
+        }
+      },
+      "folds": [
+        0.8135,
+        0.8634,
+        0.7972,
+        0.9059,
+        0.864
+      ]
+    },
+    "embedding_logreg": {
+      "macro_f1": {
+        "mean": 0.7623,
+        "std": 0.0279
+      },
+      "accuracy": {
+        "mean": 0.8658,
+        "std": 0.0095
+      },
+      "per_class_f1": {
+        "Genjutsu": {
+          "mean": 0.6651,
+          "std": 0.0803
+        },
+        "Ninjutsu": {
+          "mean": 0.9137,
+          "std": 0.0062
+        },
+        "Taijutsu": {
+          "mean": 0.7081,
+          "std": 0.0236
+        }
+      },
+      "folds": [
+        0.7832,
+        0.7644,
+        0.7341,
+        0.7344,
+        0.7953
+      ]
+    },
+    "transformer": {
+      "macro_f1": {
+        "mean": 0.8541,
+        "std": 0.0348
+      },
+      "accuracy": {
+        "mean": 0.9229,
+        "std": 0.0134
+      },
+      "per_class_f1": {
+        "Genjutsu": {
+          "mean": 0.8256,
+          "std": 0.0836
+        },
+        "Ninjutsu": {
+          "mean": 0.9528,
+          "std": 0.0081
+        },
+        "Taijutsu": {
+          "mean": 0.784,
+          "std": 0.0407
+        }
+      },
+      "folds": [
+        0.8375,
+        0.8339,
+        0.8278,
+        0.8585,
+        0.9128
+      ],
+      "model": "answerdotai/ModernBERT-base"
+    }
+  },
+  "transformer_minus_tfidf": {
+    "mean": 0.0053,
+    "std": 0.0414,
+    "folds_won": 3,
+    "per_fold": [
+      0.024,
+      -0.0295,
+      0.0306,
+      -0.0474,
+      0.0488
+    ]
+  }
+}

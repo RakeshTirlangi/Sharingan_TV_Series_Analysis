@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.env
+
+# Node / web build
+web/node_modules/
+web/dist/
+web/tsconfig.tsbuildinfo
+
+# Caches
+.scrapy/
+data/raw/.scrapy-cache/
+
+# Large or machine-specific outputs (regenerate with `sharingan all`)
+outputs/logs/
+outputs/persona/
+outputs/themes/_checkpoint.parquet
+outputs/models/jutsu/model/
+outputs/models/jutsu/cv/
+outputs/models/*/checkpoints/
+outputs/models/persona-lora/
+outputs/experiments/**/adapter_model.safetensors
+outputs/experiments/**/tokenizer.json
+outputs/experiments/**/checkpoints/

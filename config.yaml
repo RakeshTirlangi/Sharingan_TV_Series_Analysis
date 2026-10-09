@@ -1,0 +1,52 @@
+# Central configuration for every stage of the pipeline.
+# Paths are relative to the project root. Override any value with an env var,
+# e.g.  SHARINGAN__THEMES__MODEL_NAME=facebook/bart-large-mnli
+
+paths:
+  subtitles_dir: data/raw/subtitles
+  transcript_csv: data/raw/transcripts/naruto_ep1.csv
+  jutsus_jsonl: data/raw/jutsus.jsonl
+  jutsus_fallback_jsonl: data/reference/jutsus_reference.jsonl
+  processed_dir: data/processed
+  outputs_dir: outputs
+
+subtitles:
+  # A line is treated as OP/ED song lyrics when it repeats verbatim in at least
+  # `song_min_episodes` episodes AND sits inside the opening/ending window.
+  song_min_episodes: 5
+  song_window_seconds: 150
+
+themes:
+  model_name: MoritzLaurer/deberta-v3-base-zeroshot-v2.0
+  hypothesis_template: "This dialogue is about {}."
+  labels: [friendship, hope, sacrifice, battle, self development, betrayal, love, loneliness, revenge, family]
+  chunk_max_tokens: 320
+  batch_size: 32
+
+characters:
+  spacy_model: en_core_web_trf
+  window_lines: 10          # co-occurrence window (subtitle lines)
+  decay_tau: 4.0            # exp(-distance / tau) weighting inside the window
+  min_mentions: 8           # drop characters mentioned fewer times than this
+  top_edges: 250            # edges drawn in the interactive graph
+
+jutsu:
+  model_name: answerdotai/ModernBERT-base
+  labels: [Genjutsu, Ninjutsu, Taijutsu]
+  max_length: 256
+  epochs: 4
+  learning_rate: 5.0e-5
+  batch_size: 16
+  seed: 42
+  hub_model_id: null        # e.g. "your-user/naruto-jutsu-classifier" to push
+
+persona:
+  # Best persona quality that still streams on CPU (~2 words/s); on a GPU use
+  # meta-llama/Meta-Llama-3-8B-Instruct (loaded in 4-bit automatically).
+  base_model: Qwen/Qwen2.5-3B-Instruct
+  embedding_model: sentence-transformers/all-MiniLM-L6-v2
+  adapter_dir: outputs/models/persona-lora
+  retrieved_examples: 4
+  max_new_tokens: 160
+  temperature: 0.7
+  top_p: 0.9

@@ -1,0 +1,9 @@
+{
+  "train_loss": 2.359,
+  "examples": 120,
+  "base_model": "Qwen/Qwen2.5-3B-Instruct",
+  "epochs": 2,
+  "lora_rank": 16,
+  "base_eval_loss": 3.7295,
+  "eval_loss": 2.0382
+}

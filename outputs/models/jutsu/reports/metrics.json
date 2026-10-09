@@ -1,0 +1,164 @@
+{
+  "data": {
+    "train": 1788,
+    "val": 384,
+    "test": 384
+  },
+  "label_counts": {
+    "Ninjutsu": 2076,
+    "Taijutsu": 404,
+    "Genjutsu": 76
+  },
+  "baselines": {
+    "tfidf_logreg": {
+      "accuracy": 0.8958,
+      "macro_f1": 0.7916,
+      "per_class": {
+        "Genjutsu": {
+          "precision": 0.875,
+          "recall": 0.6364,
+          "f1-score": 0.7368,
+          "support": 11.0
+        },
+        "Ninjutsu": {
+          "precision": 0.9306,
+          "recall": 0.9455,
+          "f1-score": 0.938,
+          "support": 312.0
+        },
+        "Taijutsu": {
+          "precision": 0.7119,
+          "recall": 0.6885,
+          "f1-score": 0.7,
+          "support": 61.0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "Genjutsu",
+          "Ninjutsu",
+          "Taijutsu"
+        ],
+        "matrix": [
+          [
+            7,
+            3,
+            1
+          ],
+          [
+            1,
+            295,
+            16
+          ],
+          [
+            0,
+            19,
+            42
+          ]
+        ]
+      },
+      "train_seconds": 3.6
+    },
+    "embedding_logreg": {
+      "accuracy": 0.8854,
+      "macro_f1": 0.7392,
+      "per_class": {
+        "Genjutsu": {
+          "precision": 0.4375,
+          "recall": 0.6364,
+          "f1-score": 0.5185,
+          "support": 11.0
+        },
+        "Ninjutsu": {
+          "precision": 0.972,
+          "recall": 0.891,
+          "f1-score": 0.9298,
+          "support": 312.0
+        },
+        "Taijutsu": {
+          "precision": 0.6707,
+          "recall": 0.9016,
+          "f1-score": 0.7692,
+          "support": 61.0
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "Genjutsu",
+          "Ninjutsu",
+          "Taijutsu"
+        ],
+        "matrix": [
+          [
+            7,
+            2,
+            2
+          ],
+          [
+            9,
+            278,
+            25
+          ],
+          [
+            0,
+            6,
+            55
+          ]
+        ]
+      },
+      "train_seconds": 13.3
+    }
+  },
+  "transformer": {
+    "accuracy": 0.9141,
+    "macro_f1": 0.797,
+    "per_class": {
+      "Genjutsu": {
+        "precision": 0.8571,
+        "recall": 0.5455,
+        "f1-score": 0.6667,
+        "support": 11.0
+      },
+      "Ninjutsu": {
+        "precision": 0.9401,
+        "recall": 0.9551,
+        "f1-score": 0.9475,
+        "support": 312.0
+      },
+      "Taijutsu": {
+        "precision": 0.7833,
+        "recall": 0.7705,
+        "f1-score": 0.7769,
+        "support": 61.0
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "Genjutsu",
+        "Ninjutsu",
+        "Taijutsu"
+      ],
+      "matrix": [
+        [
+          6,
+          5,
+          0
+        ],
+        [
+          1,
+          298,
+          13
+        ],
+        [
+          0,
+          14,
+          47
+        ]
+      ]
+    },
+    "model": "answerdotai/ModernBERT-base",
+    "train_seconds": 1128.1,
+    "best_val_macro_f1": 0.8558,
+    "epochs_run": 4.0
+  }
+}
